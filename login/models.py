@@ -1,10 +1,6 @@
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 
-
-DAYS_CHOICE=[('mon','Monday'),('tue','Tuesday'),('wed','Wednesday'),('thu','Thursday'),('fri','Friday'),('sat','Saturday'),]
-LEAVE_CHOICE=[('ml','Medical Leave'),('od','On Duty')]
-
 class Department(models.Model):
     dept_id = models.CharField(max_length=20,primary_key = True)
     dept_name = models.CharField(max_length=50)
@@ -34,7 +30,6 @@ class Faculty(models.Model):
     l_name = models.CharField(max_length=20)
     dept_id = models.ForeignKey(Department, on_delete=models.CASCADE)
 
-
 class Course(models.Model):
     course_id = models.CharField(max_length=20,primary_key=True)
     course_name = models.CharField(max_length=50)
@@ -50,8 +45,6 @@ class Attendance(models.Model):
                                        MaxValueValidator(1)])
     class Meta:
         unique_together = (("stud_id", "course_id","date"),)
-
-
 
 class Teache(models.Model):
     fac_id = models.ForeignKey(Faculty, on_delete=models.CASCADE)

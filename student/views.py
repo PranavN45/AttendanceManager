@@ -104,7 +104,7 @@ def studadd(request):
                     cou[j][1]+=1
     for i in cou:
         i[3]=int(i[1]/i[2]*100)
-    print(cou)
+    # print(cou)
     return render(request,'studadd.html',{'stud':stud,'cou':cou})
 
 def stud_report(request):
@@ -130,3 +130,27 @@ def stud_report(request):
         else:
             writer.writerow([i.fac_id.fac_id,stud.get().class_id.class_id,stud.get().dept_id.dept_id,cou,i.date,'Absent'])
     return response
+
+def stud_all_report(request):
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="AttendanceReport.csv"'
+    atte=Attendance.objects.all().filter(stud_id=stu).order_by('fac_id','date')
+    writer = csv.writer(response)
+    writer.writerow(['Course-Id','Course-Name','Class Attended','Number of Classes','Attendance %'])
+    unique_courses,row=[],[]
+    for i in atte:
+        if i.course_id not in unique_courses:
+            unique_courses.append(i.course_id)
+    for i in unique_courses:
+        row.append([i.course_id,0,Attendance.objects.all().filter(stud_id=stu,course_id=i.course_id).count(),0,i.course_name])
+    for i in atte:
+        for j in range(len(row)):
+            if i.course_id.course_id==row[j][0]:
+                if i.presence:
+                    row[j][1]+=1
+    for i in row:
+        i[3]=int(i[1]/i[2]*100)
+    for i in row:
+        writer.writerow([i[0],i[4],i[1],i[2],i[3]])
+    return response
+

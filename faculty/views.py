@@ -185,7 +185,7 @@ def defaulters(request):
     stud=Student.objects.all().filter(class_id=cla)
     atte=Attendance.objects.all().filter(course_id=cou,fac_id=fac).order_by('stud_id','date')    
     writer = csv.writer(response)
-    writer.writerow(['Student-Id','First-Name','Last Name','Department-Id','Class-Id','Attendance %'])
+    writer.writerow(['Student-Id','First-Name','Last Name','Department-Id','Class-Id','Lectures Attended','No. Of Lectures','Attendance %'])
     unique_student,row=[],[]
     for i in stud:
         if i.stud_id not in unique_student:
@@ -204,5 +204,40 @@ def defaulters(request):
         i[7]=int(i[5]/i[6]*100)
     for i in row:
         if i[7]<75:
-            writer.writerow([i[0],i[1],i[2],i[3],i[4],i[7]])
+            writer.writerow([i[0],i[1],i[2],i[3],i[4],i[5],i[6],i[7]])
+    return response
+
+def new_report(request):
+    if request.method=="POST":
+        dict=request.POST
+        for i in dict.keys():
+            if i!='csrfmiddlewaretoken':
+                j=i
+                break
+        n,p=j[:j.find('$')],j[j.find('$')+1:]
+        tial(n,p)
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="AttendanceReport.csv"'
+    stud=Student.objects.all().filter(class_id=cla)
+    atte=Attendance.objects.all().filter(course_id=cou,fac_id=fac).order_by('stud_id','date')    
+    writer = csv.writer(response)
+    writer.writerow(['Student-Id','First-Name','Last Name','Department-Id','Class-Id','Lectures Attended','No. Of Lectures','Attendance %'])
+    unique_student,row=[],[]
+    for i in stud:
+        if i.stud_id not in unique_student:
+            unique_student.append(i.stud_id)
+
+    for i in unique_student:
+        stud=Student.objects.get(stud_id=i)
+        temp=atte.filter(stud_id=stud.stud_id)
+        cnt=0
+        for i in temp:
+            if i.presence:
+                cnt+=1
+        row.append([stud.stud_id,stud.f_name,stud.l_name,stud.dept_id.dept_id,stud.class_id.class_id,cnt,temp.count(),0])
+
+    for i in row:
+        i[7]=int(i[5]/i[6]*100)
+    for i in row:
+        writer.writerow([i[0],i[1],i[2],i[3],i[4],i[5],i[6],i[7]])
     return response

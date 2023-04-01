@@ -147,6 +147,7 @@
                       <th>Class</th>
                       <th>Course Id</th>
                       <th>Course Name</th>
+                      <th>Defaulters</th>
                       <th>Report</th>
                     </tr>
                   </thead>
@@ -156,6 +157,11 @@
                       <td>{{i.class_id.class_id}}</td>
                       <td>{{i.course_id.course_id}}</td>
                       <td>{{i.course_id.course_name}}</td>
+                      <td>
+                        <form action={% url 'defaulters' %} method="POST">{% csrf_token %}<button type=submit
+                            name={{i.class_id.class_id}}${{i.course_id.course_id}} class="btn btn-success btn-sm"><span
+                              data-feather="download"></button></form>
+                      </td>
                       <td>
                         <form action={% url 'fac_report' %} method="POST">{% csrf_token %}<button type=submit
                             name={{i.class_id.class_id}}${{i.course_id.course_id}} class="btn btn-success btn-sm"><span

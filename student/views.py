@@ -83,7 +83,7 @@ def studindex(request):
         i[3]=int(i[1]/i[2]*100)
     coud=[]
     for i in cou:
-        if i[3]<=75:
+        if i[3]<75:
             coud.append(i)
     return render(request,'studindex.html',{'stud':stud,'cou':coud})
 

@@ -8,6 +8,8 @@
   <title>Login</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link rel="shortcut icon" href="{% static 'img/logow.png' %}" type="image/x-icon">
+
 </head>
 
 <body>
@@ -22,7 +24,7 @@
     <div class="container" id="container">
       <div class="watermarked" id="cf2">
         <img src="{% static 'img/logog.png'%}" id="ER" style="width: 35px;height: 35px;" />
-        <img src="{% static 'img/logow.png'%}" id="ERL" style="width: 35px;height: 35px;opacity:0;" />
+        <img src="{% static 'img/logog.png'%}" id="ERL" style="width: 35px;height: 35px;opacity:0;" />
       </div>
       <div class="form-container sign-up-container">
         <form action={% url 'faclogin' %} method="POST">

@@ -63,14 +63,15 @@ a {
 
 button {
     border-radius: 20px;
-    border: 1px solid #4baaab;
-    background-color: #4baaab;
+    border: 1px solid #4b6bab;
+    background-color: #4b6bab;
     color: #ffffff;
     font-size: 12px;
     font-weight: bold;
     padding: 12px 45px;
     letter-spacing: 1px;
-    transition: transform 80ms ease-in
+    transition: transform 80ms ease-in;
+    cursor: pointer;
 }
 
 button:active {
@@ -95,6 +96,10 @@ button.host{
 	position: relative;
 	top: 46px;
 	padding: 12px 44px;
+}
+button:hover {
+    transform: scale(1.05);
+    /* opacity: 1.2; */
 }
 
 form {
@@ -258,7 +263,7 @@ input {
 
 .overlay {
     background: #ff416c;
-	  background: linear-gradient(to right, #5c95b8,#3aaf9f);
+	  background: linear-gradient(to right, #0d97eb,#5771ae);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 0 0;

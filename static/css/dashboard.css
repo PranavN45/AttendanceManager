@@ -12,6 +12,11 @@ body {
      }
 }
 
+button:hover{
+  transform: scale(1.05);
+  opacity: 1.2;
+  cursor: pointer;
+}
 
 .feather {
   width: 16px;

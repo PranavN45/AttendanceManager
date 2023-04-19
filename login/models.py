@@ -42,7 +42,7 @@ class Attendance(models.Model):
     course_id = models.ForeignKey(Course, on_delete=models.CASCADE)
     date = models.DateField()
     presence = models.IntegerField(validators=[MinValueValidator(0),
-                                       MaxValueValidator(1)])
+                                       MaxValueValidator(1)]) 
     class Meta:
         unique_together = (("stud_id", "course_id","date"),)
 

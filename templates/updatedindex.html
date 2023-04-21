@@ -123,10 +123,10 @@
         <div
           class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
           <h1 class="h2">Faculty Report</h1>
-          <div class="btn-group mr-2 mb-md-0">
+          {% comment %} <div class="btn-group mr-2 mb-md-0">
             <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
             <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
-          </div>
+          </div> {% endcomment %}
         </div>
 
         <div class="container" style="margin-top:30px">
@@ -149,7 +149,9 @@
                       <th>Class</th>
                       <th>Course Id</th>
                       <th>Course Name</th>
-                      <th>Defaulters</th>
+                      <th>Defaulters(<50%)</th>
+                      <th>Defaulters(50 to 74%)</th>
+                      <th>Full Defaulters</th>
                       <th>Report</th>
                     </tr>
                   </thead>
@@ -159,6 +161,16 @@
                       <td>{{i.class_id.class_id}}</td>
                       <td>{{i.course_id.course_id}}</td>
                       <td>{{i.course_id.course_name}}</td>
+                      <td>
+                        <form action={% url 'defaulters2' %} method="POST">{% csrf_token %}<button type=submit
+                            name={{i.class_id.class_id}}${{i.course_id.course_id}} class="btn btn-success btn-sm"><span
+                              data-feather="download"></button></form>
+                      </td>
+                      <td>
+                        <form action={% url 'defaulters1' %} method="POST">{% csrf_token %}<button type=submit
+                            name={{i.class_id.class_id}}${{i.course_id.course_id}} class="btn btn-success btn-sm"><span
+                              data-feather="download"></button></form>
+                      </td>
                       <td>
                         <form action={% url 'defaulters' %} method="POST">{% csrf_token %}<button type=submit
                             name={{i.class_id.class_id}}${{i.course_id.course_id}} class="btn btn-success btn-sm"><span

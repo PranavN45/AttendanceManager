@@ -1,6 +1,7 @@
 const signUpButton = document.getElementById('signUp');
 const signInButton = document.getElementById('signIn');
 const admin = document.getElementById('next');
+const cltr = document.getElementById('cltr');
 const container = document.getElementById('container');
 const over = document.getElementById('oVER');
 const logo = document.getElementById('ER');
@@ -34,6 +35,10 @@ signInButton.addEventListener('click', () => {
 
 admin.addEventListener('click', () => {
   location.href = "/admin/";
+});
+
+cltr.addEventListener('click', () => {
+  location.href = "/classteacher/";
 });
 
 document.addEventListener('DOMContentLoaded', function(event) {

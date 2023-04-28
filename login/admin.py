@@ -1,7 +1,7 @@
 import csv
 from django.template import loader
 from django.contrib import admin
-from .models import Department,Admin,Class,Student,Faculty,Course,Attendance,Teache
+from .models import Department,Admin,Class,Student,Faculty,Course,Attendance,Teache,ClassTeacher
 from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.contrib.auth.models import Group
@@ -64,6 +64,7 @@ admin.site.register(Faculty,FacAdmin)
 admin.site.register(Course)
 admin.site.register(Attendance)
 admin.site.register(Teache)
+admin.site.register(ClassTeacher)
 
 admin.site.unregister(User)
 admin.site.unregister(Group)

@@ -97,6 +97,15 @@ button.host{
 	top: 46px;
 	padding: 12px 44px;
 }
+
+button.ost{
+    background-color: transparent;
+    border-color: #ffffff;
+	position: relative;
+	top: 56px;
+	padding: 12px 44px;
+}
+
 button:hover {
     transform: scale(1.05);
     /* opacity: 1.2; */

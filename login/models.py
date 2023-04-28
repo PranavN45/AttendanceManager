@@ -52,3 +52,10 @@ class Teache(models.Model):
     class_id = models.ForeignKey(Class, on_delete=models.CASCADE)
     class Meta:
         unique_together = (("course_id", "class_id"),)
+
+class ClassTeacher(models.Model):
+    classTeacher_id=models.CharField(max_length=20,primary_key=True)
+    f_name=models.CharField(max_length=20)
+    l_name=models.CharField(max_length=20)
+    password=models.CharField(max_length=30)
+    class_id=models.ForeignKey(Class,on_delete=models.CASCADE)

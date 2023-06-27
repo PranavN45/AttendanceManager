@@ -1,5 +1,7 @@
 # Smart Attendance Manager and Report Generator
 
+[LIVE LINK](https://attendance-shubham.up.railway.app/)
+
 [click here](https://www.canva.com/design/DAFkwL8dsX0/NKV7W6Np8euX9NfnYQz0GA/edit?utm_content=DAFkwL8dsX0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton) to view the presentation of the working project.
 
 This is a smart attendance manager and report generator, designed to streamline the attendance tracking process for educational institutions. It provides various user roles such as student, faculty, class teacher, and admin, each with specific functionalities to manage attendance and generate reports. The application is built using Python Django for the backend, and HTML, CSS, Bootstrap, and JavaScript for the frontend.

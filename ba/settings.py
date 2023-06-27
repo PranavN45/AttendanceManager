@@ -50,7 +50,7 @@ MIDDLEWARE = [
     "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
-CSRF_TRUSTED_ORIGINS = ['hhttps://attendancemanager-production.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://attendance-shubham.up.railway.app']
 
 ROOT_URLCONF = 'ba.urls'
 

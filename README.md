@@ -1,6 +1,6 @@
 # Smart Attendance Manager and Report Generator
 
-[LIVE LINK](https://attendance-shubham.up.railway.app/)
+[LIVE LINK](https://shubhamore.pythonanywhere.com/)
 
 [click here](https://www.canva.com/design/DAFkwL8dsX0/NKV7W6Np8euX9NfnYQz0GA/edit?utm_content=DAFkwL8dsX0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton) to view the presentation of the working project.
 

@@ -18,8 +18,11 @@ from django.urls import path,include
 
 urlpatterns = [
     path('', include('login.urls')),
+    path('accounts/',include('allauth.urls')),
+    path('accounts/', include('allauth.socialaccount.urls')),
     path('faculty/', include('faculty.urls')),
     path('student/', include('student.urls')),
     path('classteacher/', include('classTeacher.urls')),
     path('admin/', admin.site.urls),
+    
 ]

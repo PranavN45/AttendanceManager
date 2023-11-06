@@ -20,6 +20,7 @@ class Student(models.Model):
     in_out = models.CharField(max_length=5)
     f_name = models.CharField(max_length=20)
     l_name = models.CharField(max_length=20)
+    email=models.EmailField(max_length=50,default='test@gmail.com')
     dept_id = models.ForeignKey(Department, on_delete=models.CASCADE)
     class_id = models.ForeignKey(Class, on_delete=models.CASCADE)
 

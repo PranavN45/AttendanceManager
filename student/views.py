@@ -4,6 +4,7 @@ from django.template import loader
 from django.shortcuts import render,redirect
 from login.models import Department,Admin,Class,Student,Faculty,Course,Attendance,Teache
 from django.contrib import messages
+from allauth.socialaccount.models import SocialAccount
 
 # Create your views here.
 stu=""
@@ -24,6 +25,25 @@ def tial(clat,cout):
     print(clat)
     print(cout)
     return
+
+def google_auth_callback(request):
+    # Get the user's Google email
+    print("hello============================================================================================")
+    try:
+        social_account = SocialAccount.objects.get(user=request.user, provider='google')
+        google_email = social_account.extra_data['email']
+    except SocialAccount.DoesNotExist:
+        # Handle case where user hasn't connected Google account
+        google_email = None
+    print(google_email)
+    stud=Student.objects.filter(email=google_email)
+    if stud.exists():
+        d=stud.get().dept_id.dept_id
+        initial(stud.get().stud_id,d)
+        return studindex(request)
+    else:
+        messages.error(request, 'No such User exists')
+        return redirect('index')
 
 def studlogin(request):
     if request.method=="POST":

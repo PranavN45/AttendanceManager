@@ -60,6 +60,3 @@ To run this project locally, follow these steps:
   - Username: 01
   - Password: 12345678
 
-- Admin:
-  - Username: admin
-  - Password: admin

@@ -111,7 +111,7 @@ MIDDLEWARE = [
     "allauth.account.middleware.AccountMiddleware",
 ]
 
-CSRF_TRUSTED_ORIGINS = ['https://attendance-shubham.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://attendance-shubham.up.railway.app','https://attendancemanager.onrender.com']
 
 ROOT_URLCONF = 'ba.urls'
 
@@ -182,6 +182,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+# SOCIALACCOUNT_LOGIN_ON_GET=True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/

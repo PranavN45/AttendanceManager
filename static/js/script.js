@@ -1,6 +1,7 @@
 const signUpButton = document.getElementById('signUp');
 const signInButton = document.getElementById('signIn');
 const admin = document.getElementById('next');
+const google = document.getElementById('google');
 const cltr = document.getElementById('cltr');
 const container = document.getElementById('container');
 const over = document.getElementById('oVER');
@@ -39,6 +40,9 @@ admin.addEventListener('click', () => {
 
 cltr.addEventListener('click', () => {
   location.href = "/classteacher/";
+});
+google.addEventListener('click', () => {
+  location.href = "/accounts/google/login/";
 });
 
 document.addEventListener('DOMContentLoaded', function(event) {
@@ -82,7 +86,7 @@ var main = document.querySelector('main');
 
 function changePage() {
   var url = window.location.href;
-
+  console.log("url==================================", url)
   loadPage(url).then(function(responseText) {
     var wrapper = document.createElement('div');
         wrapper.innerHTML = responseText;
@@ -113,18 +117,18 @@ function animate(oldContent, newContent) {
 
 window.addEventListener('popstate', changePage);
 
-document.addEventListener('click', function(e) {
-  var el = e.target;
+// document.addEventListener('click', function(e) {
+//   var el = e.target;
 
-  while (el && !el.href) {
-    el = el.parentNode;
-  }
+//   while (el && !el.href) {
+//     el = el.parentNode;
+//   }
 
-  if (el) {
-    e.preventDefault();
-    history.pushState(null, null, el.href);
-    changePage();
+//   if (el) {
+//     e.preventDefault();
+//     history.pushState(null, null, el.href);
+//     changePage();
 
-    return;
-  }
-});
+//     return;
+//   }
+// });

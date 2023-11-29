@@ -61,7 +61,7 @@ a {
     margin: 15px 0;
 }
 
-button {
+button,.google-btn {
     border-radius: 20px;
     border: 1px solid #4b6bab;
     background-color: #4b6bab;

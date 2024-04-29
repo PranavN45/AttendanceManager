@@ -1,6 +1,5 @@
 # Smart Attendance Manager and Report Generator
 
-[LIVE LINK](https://shubhamore.pythonanywhere.com/)
 
 [click here](https://www.canva.com/design/DAFkwL8dsX0/NKV7W6Np8euX9NfnYQz0GA/edit?utm_content=DAFkwL8dsX0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton) to view the presentation of the working project.
 
@@ -44,19 +43,3 @@ To run this project locally, follow these steps:
 5. Set up the database by running `python manage.py migrate`.
 6. Start the development server with `python manage.py runserver`.
 7. Access the application in your browser at `http://localhost:8000`.
-
-
-## Sample Usernames and Passwords
-
-- Student:
-  - Student ID: 2021300079
-  - Password: 12345678
-
-- Faculty:
-  - Faculty ID: 01
-  - Password: 12345678
-
-- Class Teacher:
-  - Username: 01
-  - Password: 12345678
-
